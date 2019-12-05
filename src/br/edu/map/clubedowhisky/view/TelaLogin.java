@@ -7,7 +7,7 @@ package br.edu.map.clubedowhisky.view;
 
 import br.edu.map.clubedowhisky.controller.ControllerUsuario;
 import javax.swing.JOptionPane;
-import br.edu.map.clubedowhisky.model.SessaoUsuario;
+import br.edu.map.clubedowhisky.util.SessaoUsuario;
 import br.edu.map.clubedowhisky.model.Usuario;
 
 

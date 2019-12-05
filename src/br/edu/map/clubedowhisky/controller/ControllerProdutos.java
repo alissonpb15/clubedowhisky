@@ -1,14 +1,14 @@
 package br.edu.map.clubedowhisky.controller;
 
 import br.edu.map.clubedowhisky.model.Produto;
-import br.edu.map.clubedowhisky.dao.DAOProduto;
+import br.edu.map.clubedowhisky.dao.ProdutoDAO;
 import java.util.ArrayList;
-import br.edu.map.clubedowhisky.dao.DAORelatorios;
+import br.edu.map.clubedowhisky.dao.RelatoriosDAO;
 
 public class ControllerProdutos {
 
-    private DAOProduto daoProdutos = new DAOProduto();
-    private DAORelatorios dAORelatorios = new DAORelatorios();
+    private ProdutoDAO daoProdutos = new ProdutoDAO();
+    private RelatoriosDAO dAORelatorios = new RelatoriosDAO();
     /**
     * grava Produtos
     * @param pModelProdutos

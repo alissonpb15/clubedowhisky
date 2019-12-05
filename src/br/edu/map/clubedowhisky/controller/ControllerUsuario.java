@@ -1,12 +1,12 @@
 package br.edu.map.clubedowhisky.controller;
 
 import br.edu.map.clubedowhisky.model.Usuario;
-import br.edu.map.clubedowhisky.dao.DAOUsuario;
+import br.edu.map.clubedowhisky.dao.UsuarioDAO;
 import java.util.ArrayList;
 
 public class ControllerUsuario {
 
-    private DAOUsuario daoUsuario = new DAOUsuario();
+    private UsuarioDAO daoUsuario = new UsuarioDAO();
 
     /**
     * grava Usuario

@@ -1,16 +1,16 @@
 package br.edu.map.clubedowhisky.controller;
 
 import br.edu.map.clubedowhisky.model.Venda;
-import br.edu.map.clubedowhisky.dao.DAOVenda;
+import br.edu.map.clubedowhisky.dao.VendaDAO;
 import java.sql.Date;
 import java.util.ArrayList;
-import br.edu.map.clubedowhisky.dao.DAORelatorios;
+import br.edu.map.clubedowhisky.dao.RelatoriosDAO;
 
 
 public class ControllerVendas {
 
-    private DAOVenda daoVendas = new DAOVenda();
-    private DAORelatorios dAORelatorios = new DAORelatorios();
+    private VendaDAO daoVendas = new VendaDAO();
+    private RelatoriosDAO dAORelatorios = new RelatoriosDAO();
 
     /**
     * grava Vendas

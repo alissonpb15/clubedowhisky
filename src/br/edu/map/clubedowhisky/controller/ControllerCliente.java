@@ -1,14 +1,14 @@
 package br.edu.map.clubedowhisky.controller;
 
 import br.edu.map.clubedowhisky.model.Cliente;
-import br.edu.map.clubedowhisky.dao.DAOCliente;
+import br.edu.map.clubedowhisky.dao.ClienteDAO;
 import java.util.ArrayList;
-import br.edu.map.clubedowhisky.dao.DAORelatorios;
+import br.edu.map.clubedowhisky.dao.RelatoriosDAO;
 
 public class ControllerCliente {
 
-    private DAOCliente daoCliente = new DAOCliente();
-    private DAORelatorios dAORelatorios = new DAORelatorios();
+    private ClienteDAO daoCliente = new ClienteDAO();
+    private RelatoriosDAO dAORelatorios = new RelatoriosDAO();
 
   
     public int salvarClienteController(Cliente pModelCliente){

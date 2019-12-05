@@ -26,7 +26,7 @@ import br.edu.map.clubedowhisky.model.Cliente;
 import br.edu.map.clubedowhisky.model.Produto;
 import br.edu.map.clubedowhisky.model.TipoPagamento;
 import br.edu.map.clubedowhisky.model.Venda;
-import br.edu.map.clubedowhisky.model.Datas;
+import br.edu.map.clubedowhisky.util.Datas;
 
 /**
  * @author  BLSoft

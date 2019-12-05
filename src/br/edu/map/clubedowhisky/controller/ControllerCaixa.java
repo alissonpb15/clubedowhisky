@@ -1,13 +1,13 @@
 package br.edu.map.clubedowhisky.controller;
 
 import br.edu.map.clubedowhisky.model.Caixa;
-import br.edu.map.clubedowhisky.dao.DAOCaixa;
+import br.edu.map.clubedowhisky.dao.CaixaDAO;
 import java.util.ArrayList;
 
 
 public class ControllerCaixa {
 
-    private DAOCaixa daoCaixa = new DAOCaixa();
+    private CaixaDAO daoCaixa = new CaixaDAO();
 
     public int salvarCaixaController(Caixa pModelCaixa){
         return this.daoCaixa.salvarCaixaDAO(pModelCaixa);

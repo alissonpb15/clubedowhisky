@@ -1,14 +1,14 @@
 package br.edu.map.clubedowhisky.controller;
 
 import br.edu.map.clubedowhisky.model.Fornecedor;
-import br.edu.map.clubedowhisky.dao.DAOFornecedor;
+import br.edu.map.clubedowhisky.dao.FornecedorDAO;
 import java.util.ArrayList;
-import br.edu.map.clubedowhisky.dao.DAORelatorios;
+import br.edu.map.clubedowhisky.dao.RelatoriosDAO;
 
 public class ControllerFornecedor {
 
-    private DAOFornecedor daoFornecedor = new DAOFornecedor();
-    private DAORelatorios dAORelatorios = new DAORelatorios();
+    private FornecedorDAO daoFornecedor = new FornecedorDAO();
+    private RelatoriosDAO dAORelatorios = new RelatoriosDAO();
 
     /**
     * grava Fornecedor

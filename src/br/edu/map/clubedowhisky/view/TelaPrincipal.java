@@ -5,9 +5,13 @@
  */
 package br.edu.map.clubedowhisky.view;
 
+import br.edu.map.clubedowhisky.controller.ControllerCliente;
+import br.edu.map.clubedowhisky.controller.ControllerFornecedor;
+import br.edu.map.clubedowhisky.controller.ControllerProdutos;
+import br.edu.map.clubedowhisky.controller.ControllerVendas;
 import javax.swing.JFrame;
-import br.edu.map.clubedowhisky.model.SessaoUsuario;
-import br.edu.map.clubedowhisky.model.Datas;
+import br.edu.map.clubedowhisky.util.SessaoUsuario;
+import br.edu.map.clubedowhisky.util.Datas;
 
 /**
  *
@@ -34,10 +38,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         paninelIncones = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         btn_Clientes = new javax.swing.JButton();
         btn_Produtos = new javax.swing.JButton();
-        btn_Relatorios = new javax.swing.JButton();
         btn_Vendas = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         btn_Pesquisar = new javax.swing.JButton();
@@ -60,6 +62,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         submenuUsuarios = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
         menuRelatorios = new javax.swing.JMenu();
+        SubMenu_RelatorioCliente = new javax.swing.JMenuItem();
+        SubMenu_Fornecedores = new javax.swing.JMenuItem();
+        SubMenu_Produtos = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
         subMenuPesquisa_Clientes = new javax.swing.JMenuItem();
         subMenuPesquisa_Produtos = new javax.swing.JMenuItem();
@@ -91,12 +96,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         paninelIncones.add(jLabel3);
         jLabel3.setBounds(110, 90, 60, 16);
 
-        jLabel5.setBackground(new java.awt.Color(255, 0, 0));
-        jLabel5.setFont(new java.awt.Font("Arial MT", 0, 12)); // NOI18N
-        jLabel5.setText("Relatórios Venda");
-        paninelIncones.add(jLabel5);
-        jLabel5.setBounds(550, 90, 95, 16);
-
         btn_Clientes.setBackground(java.awt.Color.white);
         btn_Clientes.setForeground(new java.awt.Color(255, 255, 255));
         btn_Clientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/InconeClientes.png"))); // NOI18N
@@ -125,19 +124,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         paninelIncones.add(btn_Produtos);
         btn_Produtos.setBounds(100, 10, 80, 78);
-
-        btn_Relatorios.setBackground(new java.awt.Color(255, 255, 255));
-        btn_Relatorios.setForeground(new java.awt.Color(255, 255, 255));
-        btn_Relatorios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/InconeRelatórios.png"))); // NOI18N
-        btn_Relatorios.setToolTipText("Relarórios");
-        btn_Relatorios.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btn_Relatorios.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_RelatoriosActionPerformed(evt);
-            }
-        });
-        paninelIncones.add(btn_Relatorios);
-        btn_Relatorios.setBounds(550, 10, 80, 78);
 
         btn_Vendas.setBackground(java.awt.Color.white);
         btn_Vendas.setForeground(new java.awt.Color(255, 255, 255));
@@ -225,7 +211,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jLabel.setText("Logado como:");
 
-        jlUsuario.setText("usuaario");
+        jlUsuario.setText("usuario");
 
         jlData.setText("data");
 
@@ -240,7 +226,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addComponent(jLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jlUsuario)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 482, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 488, Short.MAX_VALUE)
                 .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jlData))
@@ -256,7 +242,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel4);
-        jPanel4.setBounds(0, 110, 730, 0);
+        jPanel4.setBounds(0, 110, 730, 26);
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/logo sistema_2.png"))); // NOI18N
         getContentPane().add(jLabel9);
@@ -311,7 +297,37 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         barraMenuPrincipal.add(menuCadastros);
 
-        menuRelatorios.setText("Relatórios");
+        menuRelatorios.setText("Relatorios");
+        menuRelatorios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuRelatoriosActionPerformed(evt);
+            }
+        });
+
+        SubMenu_RelatorioCliente.setText("Clientes");
+        SubMenu_RelatorioCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SubMenu_RelatorioClienteActionPerformed(evt);
+            }
+        });
+        menuRelatorios.add(SubMenu_RelatorioCliente);
+
+        SubMenu_Fornecedores.setText("Fornecedores");
+        SubMenu_Fornecedores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SubMenu_FornecedoresActionPerformed(evt);
+            }
+        });
+        menuRelatorios.add(SubMenu_Fornecedores);
+
+        SubMenu_Produtos.setText("Produtos");
+        SubMenu_Produtos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SubMenu_ProdutosActionPerformed(evt);
+            }
+        });
+        menuRelatorios.add(SubMenu_Produtos);
+
         barraMenuPrincipal.add(menuRelatorios);
 
         jMenu1.setText("Pesquisar");
@@ -406,14 +422,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         tela.setVisible(true);
     }//GEN-LAST:event_btn_VendasActionPerformed
 
-    private void btn_RelatoriosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_RelatoriosActionPerformed
-       TelaRelatorioVendas tela =new TelaRelatorioVendas();
-        tela.setVisible(true);
-       
-         
-        
-    }//GEN-LAST:event_btn_RelatoriosActionPerformed
-
     private void btn_ProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ProdutosActionPerformed
         TelaCadastroProduto telaProdutos = new TelaCadastroProduto();
         telaProdutos.setVisible(true);
@@ -449,8 +457,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void configurar(){
         pNomeUsuario = retornarUsuarioLogado();
         jlUsuario.setText(pNomeUsuario);
-        Datas bLDatas = new Datas();
-        jlData.setText(bLDatas.retornarDataHora());
+        Datas cwDatas = new Datas();
+        jlData.setText(cwDatas.retornarDataHora());
         
     }
     private void btn_PesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_PesquisarActionPerformed
@@ -459,6 +467,27 @@ public class TelaPrincipal extends javax.swing.JFrame {
     
       
     }//GEN-LAST:event_btn_PesquisarActionPerformed
+
+    private void menuRelatoriosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuRelatoriosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuRelatoriosActionPerformed
+
+    private void SubMenu_RelatorioClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubMenu_RelatorioClienteActionPerformed
+        ControllerCliente controllerCliente = new ControllerCliente();
+        controllerCliente.gerarRelatorioCliente();
+                                                 
+    }//GEN-LAST:event_SubMenu_RelatorioClienteActionPerformed
+
+    private void SubMenu_FornecedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubMenu_FornecedoresActionPerformed
+        ControllerFornecedor controllerFornecedor = new ControllerFornecedor();
+        controllerFornecedor.gerarRelatorioFornecedor();
+    }//GEN-LAST:event_SubMenu_FornecedoresActionPerformed
+
+    private void SubMenu_ProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubMenu_ProdutosActionPerformed
+        // imprimir produtos
+        ControllerProdutos controllerProdutos = new ControllerProdutos();
+        controllerProdutos.gerarRelatorioProdutos();
+    }//GEN-LAST:event_SubMenu_ProdutosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -497,12 +526,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem SubMenu_Fornecedores;
+    private javax.swing.JMenuItem SubMenu_Produtos;
+    private javax.swing.JMenuItem SubMenu_RelatorioCliente;
     private javax.swing.JMenuBar barraMenuPrincipal;
     private javax.swing.JButton bnt_Fornecedor;
     private javax.swing.JButton btn_Clientes;
     private javax.swing.JButton btn_Pesquisar;
     private javax.swing.JButton btn_Produtos;
-    private javax.swing.JButton btn_Relatorios;
     private javax.swing.JButton btn_Usuarios;
     private javax.swing.JButton btn_Vendas;
     private javax.swing.JLabel jLabel;
@@ -511,7 +542,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;

@@ -1,12 +1,12 @@
 package br.edu.map.clubedowhisky.controller;
 
 import br.edu.map.clubedowhisky.model.TipoPagamento;
-import br.edu.map.clubedowhisky.dao.DAOTipoPagamento;
+import br.edu.map.clubedowhisky.dao.TipoPagamentoDAO;
 import java.util.ArrayList;
 
 public class ControllerTipoPagamento {
 
-    private DAOTipoPagamento daoTipoPagamento = new DAOTipoPagamento();
+    private TipoPagamentoDAO daoTipoPagamento = new TipoPagamentoDAO();
 
     /**
     * grava TipoPagamento
